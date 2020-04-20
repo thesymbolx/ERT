@@ -7,8 +7,6 @@ import androidx.lifecycle.ViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    val viewModel: FieldsViewModel by viewModels()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

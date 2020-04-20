@@ -14,7 +14,8 @@
             android:id="@+id/action_fieldsFragment_to_fieldDialog"
             app:destination="@id/fieldDialog" />
     </fragment>
-    <fragment
+
+    <dialog
         android:id="@+id/fieldDialog"
         android:name="com.example.technicaltaskert.FieldDialog"
         android:label="fragment_field_dialog"
