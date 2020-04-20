@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav_graph"
+    app:startDestination="@id/fieldsFragment">
+
+    <fragment
+        android:id="@+id/fieldsFragment"
+        android:name="com.example.technicaltaskert.FieldsFragment"
+        android:label="fragment_fields"
+        tools:layout="@layout/fragment_fields" >
+        <action
+            android:id="@+id/action_fieldsFragment_to_fieldDialog"
+            app:destination="@id/fieldDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/fieldDialog"
+        android:name="com.example.technicaltaskert.FieldDialog"
+        android:label="fragment_field_dialog"
+        tools:layout="@layout/fragment_field_dialog" />
+</navigation>
