@@ -27,10 +27,11 @@ class FieldsFragment : Fragment() {
     }
 
    private fun openFieldsDialog(field: FieldsViewModel.FieldType) =
-       findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToFieldDialog(field))
-
-//       when(v){
-//           VALUE -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToFieldDialog())
-//           NUMBER -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToFieldDialog())
-//       }
+       when(field){
+           VALUE -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToFieldDialog())
+           NUMBER -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToFieldDialog())
+           PRIORITY -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToFieldDialog())
+           DAYS -> findNavController().navigate(FieldsFragmentDirections.())
+           TIME -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToTimeDialog())
+       }
 }

@@ -24,14 +24,15 @@
             app:layout_constraintEnd_toStartOf="@id/value_button"
             android:text="@={fieldViewModel.value}"
             android:layout_margin="8dp"
-            android:hint="Enter a value" />
+            android:hint="Quantity"
+            android:gravity="center_vertical"/>
 
         <Button
             android:id="@+id/value_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="@{() -> fieldViewModel.onFieldClick.invoke(FieldType.VALUE)}"
-            android:text="Enter a value"
+            android:text="Input Value"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_margin="8dp"/>
@@ -46,7 +47,8 @@
             app:layout_constraintEnd_toStartOf="@id/number_button"
             android:text="@={fieldViewModel.value}"
             android:layout_margin="8dp"
-            android:hint="Enter a Number"
+            android:hint="Value"
+            android:gravity="center_vertical"
             android:maxLines="2"/>
 
         <Button
@@ -54,13 +56,80 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="@{() -> fieldViewModel.onFieldClick.invoke(FieldType.NUMBER)}"
-            android:text="Enter a value"
+            android:text="Input Value"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/value_button"
             android:layout_margin="8dp"/>
 
+        <TextView
+            android:id="@+id/day"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/day_button"
+            app:layout_constraintBottom_toBottomOf="@id/day_button"
+            app:layout_constraintEnd_toStartOf="@id/day_button"
+            android:text="@={fieldViewModel.value}"
+            android:layout_margin="8dp"
+            android:hint="Priority"
+            android:gravity="center_vertical"
+            android:maxLines="2"/>
+
+        <Button
+            android:id="@+id/day_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> fieldViewModel.onFieldClick.invoke(FieldType.DAYS)}"
+            android:text="Input Value"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/number_button"
+            android:layout_margin="8dp"/>
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/time_button"
+            app:layout_constraintBottom_toBottomOf="@id/time_button"
+            app:layout_constraintEnd_toStartOf="@id/time_button"
+            android:text="@={fieldViewModel.time}"
+            android:layout_margin="8dp"
+            android:hint="Time"
+            android:gravity="center_vertical"/>
+
+        <Button
+            android:id="@+id/time_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> fieldViewModel.onFieldClick.invoke(FieldType.TIME)}"
+            android:text="Input Value"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/day_button"
+            android:layout_margin="8dp"/>
+
+        <TextView
+            android:id="@+id/days"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/days_button"
+            app:layout_constraintBottom_toBottomOf="@id/days_button"
+            app:layout_constraintEnd_toStartOf="@id/days_button"
+            android:text="@={fieldViewModel.days}"
+            android:layout_margin="8dp"
+            android:hint="Days"
+            android:gravity="center_vertical"/>
+
+        <Button
+            android:id="@+id/days_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> fieldViewModel.onFieldClick.invoke(FieldType.DAYS)}"
+            android:text="Input Value"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/time_button"
+            android:layout_margin="8dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </layout>
 

@@ -1,7 +1,9 @@
 package com.example.technicaltaskert
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+
 
 class FieldsViewModel : ViewModel() {
 
@@ -9,14 +11,27 @@ class FieldsViewModel : ViewModel() {
         VALUE,
         NUMBER,
         PRIORITY,
-        DAYS
+        DAYS,
+        TIME
     }
 
     lateinit var onFieldClick : (FieldType) -> Unit
+
+    var daysActive = mutableMapOf<String, Boolean>()
 
     val fieldType = MutableLiveData(FieldType.VALUE)
     val value = MutableLiveData<String>()
     val number = MutableLiveData<String>()
     val priority = MutableLiveData<String>()
-    val day = MutableLiveData<String>()
+    val time = MutableLiveData<String>()
+    val days = MutableLiveData<String>()
+
+    fun setDay(day: String, isDay: Boolean) {
+        daysActive[day] = isDay
+        days.value = daysActive.values.filter { it }.joinToString(",")
+    }
 }
+
+
+
+

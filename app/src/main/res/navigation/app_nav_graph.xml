@@ -13,11 +13,14 @@
         <action
             android:id="@+id/action_fieldsFragment_to_fieldDialog"
             app:destination="@id/fieldDialog" />
+        <action
+            android:id="@+id/action_fieldsFragment_to_timeDialog"
+            app:destination="@id/timeDialog" />
     </fragment>
 
     <dialog
         android:id="@+id/fieldDialog"
-        android:name="com.example.technicaltaskert.FieldDialog"
+        android:name="com.example.technicaltaskert.dialogs.FieldDialog"
         android:label="fragment_field_dialog"
         tools:layout="@layout/fragment_field_dialog" >
         <argument
@@ -25,4 +28,8 @@
             app:argType="com.example.technicaltaskert.FieldsViewModel$FieldType"
             android:defaultValue="VALUE" />
     </dialog>
+    <dialog
+        android:id="@+id/timeDialog"
+        android:name="com.example.technicaltaskert.dialogs.TimeDialog"
+        android:label="TimeDialog" />
 </navigation>
