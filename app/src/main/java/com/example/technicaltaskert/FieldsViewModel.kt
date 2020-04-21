@@ -1,15 +1,12 @@
 package com.example.technicaltaskert
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-
 class FieldsViewModel : ViewModel() {
-
     enum class FieldType{
         VALUE,
-        NUMBER,
+        QUANTITY,
         PRIORITY,
         DAYS,
         TIME
@@ -17,11 +14,9 @@ class FieldsViewModel : ViewModel() {
 
     lateinit var onFieldClick : (FieldType) -> Unit
 
-    var daysActive = mutableMapOf<String, Boolean>()
-
-    val fieldType = MutableLiveData(FieldType.VALUE)
+    private var daysActive = mutableMapOf<String, Boolean>()
     val value = MutableLiveData<String>()
-    val number = MutableLiveData<String>()
+    val quantity = MutableLiveData<String>()
     val priority = MutableLiveData<String>()
     val time = MutableLiveData<String>()
     val days = MutableLiveData<String>()

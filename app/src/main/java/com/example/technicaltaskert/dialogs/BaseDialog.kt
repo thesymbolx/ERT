@@ -8,19 +8,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.navArgs
-import com.example.technicaltaskert.FieldDialogArgs
 import com.example.technicaltaskert.FieldsViewModel
 
-abstract class BaseDialog<T : ViewDataBinding> : DialogFragment(){
-    private val viewModel: FieldsViewModel by activityViewModels()
-    private val args: FieldDialogArgs by navArgs()
-    private lateinit var binding : T
+abstract class BaseFieldsDialog<T : ViewDataBinding> : DialogFragment(){
+    protected val viewModel: FieldsViewModel by activityViewModels()
+    protected lateinit var binding : T
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         binding = DataBindingUtil.inflate(
             LayoutInflater.from(context),
             getLayoutId(), null, false)
+
+        configureBinding(binding)
 
         return AlertDialog.Builder(activity).run {
             setView(binding.root)
@@ -30,4 +29,5 @@ abstract class BaseDialog<T : ViewDataBinding> : DialogFragment(){
     }
 
     abstract fun getLayoutId() : Int
+    abstract fun configureBinding(binding: T)
 }

@@ -11,25 +11,33 @@
         android:label="fragment_fields"
         tools:layout="@layout/fragment_fields" >
         <action
-            android:id="@+id/action_fieldsFragment_to_fieldDialog"
-            app:destination="@id/fieldDialog" />
-        <action
             android:id="@+id/action_fieldsFragment_to_timeDialog"
             app:destination="@id/timeDialog" />
+        <action
+            android:id="@+id/action_fieldsFragment_to_priorityDialog"
+            app:destination="@id/priorityDialog" />
+        <action
+            android:id="@+id/action_fieldsFragment_to_daysDialog"
+            app:destination="@id/daysDialog" />
+        <action
+            android:id="@+id/action_fieldsFragment_to_textFieldDialog"
+            app:destination="@id/textFieldDialog" />
     </fragment>
 
-    <dialog
-        android:id="@+id/fieldDialog"
-        android:name="com.example.technicaltaskert.dialogs.FieldDialog"
-        android:label="fragment_field_dialog"
-        tools:layout="@layout/fragment_field_dialog" >
-        <argument
-            android:name="fieldType"
-            app:argType="com.example.technicaltaskert.FieldsViewModel$FieldType"
-            android:defaultValue="VALUE" />
-    </dialog>
     <dialog
         android:id="@+id/timeDialog"
         android:name="com.example.technicaltaskert.dialogs.TimeDialog"
         android:label="TimeDialog" />
+    <dialog
+        android:id="@+id/priorityDialog"
+        android:name="com.example.technicaltaskert.dialogs.PriorityDialog"
+        android:label="PriorityDialog" />
+    <dialog
+        android:id="@+id/daysDialog"
+        android:name="com.example.technicaltaskert.dialogs.DaysDialog"
+        android:label="DaysDialog" />
+    <dialog
+        android:id="@+id/textFieldDialog"
+        android:name="com.example.technicaltaskert.dialogs.TextFieldDialog"
+        android:label="TextFieldDialog" />
 </navigation>
