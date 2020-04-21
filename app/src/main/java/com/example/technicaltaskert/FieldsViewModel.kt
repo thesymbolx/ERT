@@ -6,10 +6,17 @@ import androidx.lifecycle.ViewModel
 class FieldsViewModel : ViewModel() {
 
     enum class FieldType{
-        VALUE
+        VALUE,
+        NUMBER,
+        PRIORITY,
+        DAYS
     }
 
-    val fieldType = MutableLiveData<FieldType>()
-    val value = MutableLiveData<String>()
+    lateinit var onFieldClick : (FieldType) -> Unit
 
+    val fieldType = MutableLiveData(FieldType.VALUE)
+    val value = MutableLiveData<String>()
+    val number = MutableLiveData<String>()
+    val priority = MutableLiveData<String>()
+    val day = MutableLiveData<String>()
 }

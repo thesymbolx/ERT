@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.technicaltaskert.databinding.FragmentFieldsBinding
+import com.example.technicaltaskert.FieldsViewModel.FieldType.*
 
 class FieldsFragment : Fragment() {
 
@@ -17,11 +18,19 @@ class FieldsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle? ): View? {
 
+        viewModel.onFieldClick = ::openFieldsDialog
+
         return FragmentFieldsBinding.inflate(inflater).apply {
             fieldViewModel = viewModel
             lifecycleOwner = this@FieldsFragment
         }.root
     }
 
-   fun onClick() = findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToFieldDialog())
+   private fun openFieldsDialog(field: FieldsViewModel.FieldType) =
+       findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToFieldDialog(field))
+
+//       when(v){
+//           VALUE -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToFieldDialog())
+//           NUMBER -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToFieldDialog())
+//       }
 }
