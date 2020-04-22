@@ -15,7 +15,6 @@ import com.example.technicaltaskert.dialogs.TextFieldDialog
 
 
 class FieldsFragment : Fragment() {
-
     private val viewModel: FieldsViewModel by activityViewModels()
 
     override fun onCreateView(

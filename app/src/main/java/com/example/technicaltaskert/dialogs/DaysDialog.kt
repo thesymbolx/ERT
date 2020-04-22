@@ -9,7 +9,6 @@ class DaysDialog : BaseFieldsDialog<DialogDaysBinding>() {
 
     override fun configureBinding(binding: DialogDaysBinding) {
         viewModel.daysActive.forEach { (day, isActive) ->
-
             when(day){
                 MONDAY -> binding.mondayCheckBox.isChecked = isActive
                 TUESDAY -> binding.tuesdayCheckBox.isChecked = isActive
