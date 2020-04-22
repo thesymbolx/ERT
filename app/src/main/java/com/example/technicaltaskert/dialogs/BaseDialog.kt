@@ -21,6 +21,7 @@ abstract class BaseFieldsDialog<T : ViewDataBinding> : DialogFragment(){
             getLayoutId(), null, false)
 
         binding.setVariable(BR.viewModel, viewModel)
+        binding.lifecycleOwner = this
 
         configureBinding(binding)
 

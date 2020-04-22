@@ -8,7 +8,8 @@ import com.example.technicaltaskert.databinding.DialogTextFieldBinding
 class TextFieldDialog : BaseFieldsDialog<DialogTextFieldBinding>() {
     enum class FieldInputType(val typeFlag : Int){
         VALUE(InputType.TYPE_CLASS_TEXT),
-        QUANTITY(InputType.TYPE_CLASS_NUMBER)
+        QUANTITY(InputType.TYPE_CLASS_NUMBER),
+        EMAIL(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS)
     }
 
     private val fieldInputType : TextFieldDialogArgs by navArgs()
@@ -16,10 +17,10 @@ class TextFieldDialog : BaseFieldsDialog<DialogTextFieldBinding>() {
     override fun getLayoutId() = R.layout.dialog_text_field
 
     override fun configureBinding(binding: DialogTextFieldBinding) {
-        if(fieldInputType.inputType == FieldInputType.QUANTITY) {
-            binding.obs = viewModel.quantity
-        }else{
-            binding.obs = viewModel.value
+        binding.obs = when(fieldInputType.inputType){
+            FieldInputType.QUANTITY -> viewModel.quantity
+            FieldInputType.VALUE -> viewModel.value
+            FieldInputType.EMAIL -> viewModel.email
         }
 
         binding.valueTextView.inputType = fieldInputType.inputType.typeFlag

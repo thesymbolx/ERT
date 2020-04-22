@@ -145,6 +145,41 @@
             app:layout_constraintTop_toBottomOf="@id/day_button"
             android:layout_margin="8dp"
             app:layout_constraintHorizontal_weight=".25"/>
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/email_button"
+            app:layout_constraintBottom_toBottomOf="@id/email_button"
+            app:layout_constraintEnd_toStartOf="@id/email_button"
+            android:text="@={fieldViewModel.email}"
+            android:layout_margin="8dp"
+            android:hint="Email"
+            android:gravity="center_vertical"
+            app:layout_constraintHorizontal_weight=".70"/>
+
+        <Button
+            android:id="@+id/email_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> fieldViewModel.onFieldClick.invoke(FieldType.EMAIL)}"
+            android:text="Email"
+            app:layout_constraintStart_toEndOf="@id/email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/time_button"
+            android:layout_margin="8dp"
+            app:layout_constraintHorizontal_weight=".25"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send Email"
+            app:layout_constraintTop_toBottomOf="@id/email_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{() -> fieldViewModel.onEmailClicked.invoke(fieldViewModel.getAsJson)}"
+            android:layout_margin="8dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 

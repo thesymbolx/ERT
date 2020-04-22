@@ -2,6 +2,8 @@ package com.example.technicaltaskert
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.gson.Gson
+import com.google.gson.JsonObject
 
 class FieldsViewModel : ViewModel() {
     enum class FieldType{
@@ -9,10 +11,12 @@ class FieldsViewModel : ViewModel() {
         QUANTITY,
         PRIORITY,
         DAYS,
-        TIME
+        TIME,
+        EMAIL
     }
 
     lateinit var onFieldClick : (FieldType) -> Unit
+    lateinit var onEmailClicked : (String) -> Unit
 
     var daysActive = mutableMapOf<Day, Boolean>()
     val value = MutableLiveData<String>()
@@ -22,6 +26,13 @@ class FieldsViewModel : ViewModel() {
     var min : Int? = null
     val time = MutableLiveData<String>()
     val days = MutableLiveData<String>()
+    val email = MutableLiveData<String>()
+
+    init {
+        Day.values().forEach {
+            daysActive[it] = false
+        }
+    }
 
     fun setDay(day: Day, isDay: Boolean) {
         daysActive[day] = isDay
@@ -32,6 +43,19 @@ class FieldsViewModel : ViewModel() {
             .joinToString(", ")
             { it.value }
     }
+
+    fun getAsJson() : String =
+        Gson().toJson(
+            JsonObject().apply {
+                addProperty("value", value.value)
+                addProperty("quantity", quantity.value)
+                addProperty("priority", priority.value)
+                addProperty("time", time.value)
+
+                daysActive.forEach { (day, isActive) ->
+                    addProperty(day.value, isActive)
+                }
+            })
 }
 
 enum class Day(var value: String){
