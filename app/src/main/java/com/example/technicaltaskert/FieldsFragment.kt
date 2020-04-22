@@ -31,14 +31,15 @@ class FieldsFragment : Fragment() {
     }
 
    private fun openFieldsDialog(field: FieldsViewModel.FieldType) =
-       when(field){
-           VALUE -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToTextFieldDialog(TextFieldDialog.FieldInputType.VALUE))
-           QUANTITY -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToTextFieldDialog(TextFieldDialog.FieldInputType.QUANTITY))
-           PRIORITY -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToPriorityDialog())
-           DAYS -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToDaysDialog())
-           TIME -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToTimeDialog())
-           EMAIL -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToTextFieldDialog(TextFieldDialog.FieldInputType.EMAIL))
-       }
+       findNavController().navigate(
+           when(field){
+               VALUE -> FieldsFragmentDirections.actionFieldsFragmentToTextFieldDialog(TextFieldDialog.FieldInputType.VALUE)
+               QUANTITY -> FieldsFragmentDirections.actionFieldsFragmentToTextFieldDialog(TextFieldDialog.FieldInputType.QUANTITY)
+               PRIORITY -> FieldsFragmentDirections.actionFieldsFragmentToPriorityDialog()
+               DAYS -> FieldsFragmentDirections.actionFieldsFragmentToDaysDialog()
+               TIME -> FieldsFragmentDirections.actionFieldsFragmentToTimeDialog()
+               EMAIL -> FieldsFragmentDirections.actionFieldsFragmentToTextFieldDialog(TextFieldDialog.FieldInputType.EMAIL)
+           })
 
     private fun sendEmail(message: String){
         var emailAddress = viewModel.email.value ?: ""

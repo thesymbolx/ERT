@@ -44,18 +44,21 @@ class FieldsViewModel : ViewModel() {
             { it.value }
     }
 
-    fun getAsJson() : String =
-        Gson().toJson(
-            JsonObject().apply {
-                addProperty("value", value.value)
-                addProperty("quantity", quantity.value)
-                addProperty("priority", priority.value)
-                addProperty("time", time.value)
+    fun getAsJson() : String {
+        var map =
+            mutableMapOf<String, Any?>(
+                "value" to value.value,
+                "quantity" to quantity.value,
+                "priority" to priority.value,
+                "time" to time.value)
 
-                daysActive.forEach { (day, isActive) ->
-                    addProperty(day.value, isActive)
-                }
-            })
+
+        daysActive.forEach { (day, isActive) ->
+            map[day.value] = isActive
+        }
+
+        return Gson().toJson(map)
+    }
 }
 
 enum class Day(var value: String){
