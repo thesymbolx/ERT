@@ -22,7 +22,8 @@
             android:layout_height="wrap_content"
             android:text="@={ obs }"
             android:inputType="text"
-            android:maxLength="70"/>
+            android:maxLength="60"
+            android:layout_margin="8dp"/>
     </LinearLayout>
 </layout>
 
