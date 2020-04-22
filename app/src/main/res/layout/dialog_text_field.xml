@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout>
     <data>
+        <import type="com.example.technicaltaskert.dialogs.TextFieldDialog.FieldInputType"/>
+
         <variable
-            name="fieldViewModel"
-            type="com.example.technicaltaskert.FieldsViewModel" />
+            name="obs"
+            type="androidx.lifecycle.MutableLiveData&lt;String>" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,11 +17,12 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/value"
+            android:id="@+id/value_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@={fieldViewModel.value}"
-            android:inputType="text"/>
+            android:text="@={ obs }"
+            android:inputType="text"
+            android:maxLength="70"/>
     </LinearLayout>
 </layout>
 

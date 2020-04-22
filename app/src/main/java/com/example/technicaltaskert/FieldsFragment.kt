@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.technicaltaskert.databinding.FragmentFieldsBinding
 import com.example.technicaltaskert.FieldsViewModel.FieldType.*
+import com.example.technicaltaskert.dialogs.TextFieldDialog
 
 class FieldsFragment : Fragment() {
 
@@ -28,10 +29,10 @@ class FieldsFragment : Fragment() {
 
    private fun openFieldsDialog(field: FieldsViewModel.FieldType) =
        when(field){
-           VALUE -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToTextFieldDialog())
-           QUANTITY -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToTextFieldDialog())
+           VALUE -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToTextFieldDialog(TextFieldDialog.FieldInputType.VALUE))
+           QUANTITY -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToTextFieldDialog(TextFieldDialog.FieldInputType.QUANTITY))
            PRIORITY -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToPriorityDialog())
            DAYS -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToDaysDialog())
-           TIME -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToDaysDialog())
+           TIME -> findNavController().navigate(FieldsFragmentDirections.actionFieldsFragmentToTimeDialog())
        }
 }

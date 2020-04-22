@@ -25,7 +25,8 @@
             android:text="@{fieldViewModel.quantity}"
             android:layout_margin="8dp"
             android:hint="Quantity"
-            android:gravity="center_vertical"/>
+            android:gravity="center_vertical"
+            android:maxLength="70"/>
 
         <Button
             android:id="@+id/quantity_button"
@@ -48,7 +49,8 @@
             android:text="@={fieldViewModel.value}"
             android:layout_margin="8dp"
             android:hint="Value"
-            android:gravity="center_vertical"/>
+            android:gravity="center_vertical"
+            android:maxLength="70"/>
 
         <Button
             android:id="@+id/value_button"
@@ -109,12 +111,12 @@
         <TextView
             android:id="@+id/time"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/time_button"
             app:layout_constraintBottom_toBottomOf="@id/time_button"
             app:layout_constraintEnd_toStartOf="@id/time_button"
-            android:text="@={fieldViewModel.days}"
+            android:text="@={fieldViewModel.time}"
             android:layout_margin="8dp"
             android:hint="Time"
             android:gravity="center_vertical"/>

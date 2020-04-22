@@ -14,17 +14,34 @@ class FieldsViewModel : ViewModel() {
 
     lateinit var onFieldClick : (FieldType) -> Unit
 
-    private var daysActive = mutableMapOf<String, Boolean>()
+    var daysActive = mutableMapOf<Day, Boolean>()
     val value = MutableLiveData<String>()
     val quantity = MutableLiveData<String>()
     val priority = MutableLiveData<String>()
+    var hour : Int? = null
+    var min : Int? = null
     val time = MutableLiveData<String>()
     val days = MutableLiveData<String>()
 
-    fun setDay(day: String, isDay: Boolean) {
+    fun setDay(day: Day, isDay: Boolean) {
         daysActive[day] = isDay
-        days.value = daysActive.values.filter { it }.joinToString(",")
+        days.value = daysActive
+            .filter { it.value }
+            .keys
+            .sortedBy { it.ordinal }
+            .joinToString(", ")
+            { it.value }
     }
+}
+
+enum class Day(var value: String){
+    MONDAY("Monday"),
+    TUESDAY("Tuesday"),
+    WEDNESDAY("Wednesday"),
+    THURSDAY("Thursday"),
+    FRIDAY("Friday"),
+    SATURDAY("Saturday"),
+    SUNDAY("Sunday")
 }
 
 

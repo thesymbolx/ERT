@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
+import com.example.technicaltaskert.BR
 import com.example.technicaltaskert.FieldsViewModel
 
 abstract class BaseFieldsDialog<T : ViewDataBinding> : DialogFragment(){
@@ -18,6 +19,8 @@ abstract class BaseFieldsDialog<T : ViewDataBinding> : DialogFragment(){
         binding = DataBindingUtil.inflate(
             LayoutInflater.from(context),
             getLayoutId(), null, false)
+
+        binding.setVariable(BR.viewModel, viewModel)
 
         configureBinding(binding)
 

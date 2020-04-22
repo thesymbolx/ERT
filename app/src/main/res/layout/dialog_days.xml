@@ -3,8 +3,10 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="fieldViewModel"
+            name="viewModel"
             type="com.example.technicaltaskert.FieldsViewModel" />
+
+        <import type="com.example.technicaltaskert.Day"/>
     </data>
 
     <LinearLayout
@@ -19,57 +21,68 @@
             android:text="Monday"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_margin="8dp" />
+            android:layout_margin="8dp"
+            android:onCheckedChanged='@{(cb, isChecked) -> viewModel.setDay(Day.MONDAY, isChecked)}' />
+
         <CheckBox
             android:id="@+id/tuesday_checkBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CheckBox"
+            android:text="Tuesday"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_margin="8dp" />
+            android:layout_margin="8dp"
+            android:onCheckedChanged='@{(cb, isChecked) -> viewModel.setDay(Day.TUESDAY, isChecked)}'/>
+
         <CheckBox
             android:id="@+id/wednesday_checkBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CheckBox"
+            android:text="Wednesday"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_margin="8dp" />
+            android:layout_margin="8dp"
+            android:onCheckedChanged='@{(cb, isChecked) -> viewModel.setDay(Day.WEDNESDAY, isChecked)}'/>
+
         <CheckBox
             android:id="@+id/thursday_checkBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CheckBox"
+            android:text="Thursday"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_margin="8dp" />
+            android:layout_margin="8dp"
+            android:onCheckedChanged='@{(cb, isChecked) -> viewModel.setDay(Day.THURSDAY, isChecked)}'/>
         <CheckBox
             android:id="@+id/friday_checkBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CheckBox"
+            android:text="Friday"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_margin="8dp" />
+            android:layout_margin="8dp"
+            android:onCheckedChanged='@{(cb, isChecked) -> viewModel.setDay(Day.FRIDAY, isChecked)}'/>
+
         <CheckBox
             android:id="@+id/saturday_checkBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CheckBox"
+            android:text="Saturday"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_margin="8dp" />
+            android:layout_margin="8dp"
+            android:onCheckedChanged='@{(cb, isChecked) -> viewModel.setDay(Day.SATURDAY, isChecked)}'/>
+
         <CheckBox
             android:id="@+id/sunday_checkBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CheckBox"
+            android:text="Sunday"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_margin="8dp" />
+            android:layout_margin="8dp"
+            android:onCheckedChanged='@{(cb, isChecked) -> viewModel.setDay(Day.SUNDAY, isChecked)}'/>
 
     </LinearLayout>
-
 </layout>
 

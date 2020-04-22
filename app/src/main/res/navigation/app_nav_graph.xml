@@ -39,5 +39,9 @@
     <dialog
         android:id="@+id/textFieldDialog"
         android:name="com.example.technicaltaskert.dialogs.TextFieldDialog"
-        android:label="TextFieldDialog" />
+        android:label="TextFieldDialog" >
+        <argument
+            android:name="inputType"
+            app:argType="com.example.technicaltaskert.dialogs.TextFieldDialog$FieldInputType" />
+    </dialog>
 </navigation>
